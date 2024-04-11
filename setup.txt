@@ -1,0 +1,95 @@
+prerequisites:
+
+Node JS : https://nodejs.org/en/download/ 
+Python: https://www.python.org/downloads/
+IPFS : https://dist.ipfs.tech/#go-ipfs 
+angular: npm install -g @angular/cli
+truffle: npm install -g truffle      if failed run :  npm install -g truffle@5.4.29
+
+
+open CMD in Server Directory 
+
+```
+python -m pip install -r requirements.txt
+python manage.py migrate
+python manage.py run server
+
+
+open GANACHE and import the project 
+open CMD in the Client Directory
+
+```
+npm install --force
+truffle migratenpm start
+
+```
+
+setup metamask before opening the project
+
+open: http://localhost:4200/
+
+**** CLEARING THE SERVER  AND CLIENT ***
+in Server dir:python manage.py flush
+in CLient :truffle migrate
+
+
+```
+
+IPFS Configuration
+
+"Access-Control-Allow-Headers": [
+      "X-Requested-With",
+      "Access-Control-Expose-Headers",
+      "Range"
+   ],
+   "Access-Control-Expose-Headers": [
+      "Location",
+      "Ipfs-Hash"
+   ],
+   "Access-Control-Allow-Methods": [
+      "POST",
+      "GET"
+   ],
+   "Access-Control-Allow-Origin": [
+      "*"
+   ],
+   "X-Special-Header": [
+      "Access-Control-Expose-Headers: Ipfs-Hash"
+   ]
+
+
+```````````````````
+
+next Time for starting project
+
+#IPFS
+
+ipfs daemon
+
+#SERVER
+
+venv\Scripts\activate
+python manage.py runserver
+
+#Client
+
+npm start
+
+open ganache
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,6 +1,6 @@
 # BlockMedAi
 
-Repo link: ' '
+
 
 Please find the details of our project:
 

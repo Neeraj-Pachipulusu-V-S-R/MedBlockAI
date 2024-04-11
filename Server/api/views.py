@@ -76,33 +76,6 @@ class AppointmentView(APIView):
         return Response({"status": "success", "data": appointment.status}, status.HTTP_200_OK)
 
 
-class ChatbotView(APIView):
-    def post(self, request):
-        data = request.data
-        symptoms = data.get('symptoms', '')
-        health_conditions = data.get('health_conditions', '')
-        lab_report_path = data.get('lab_report_path', '')
-
-        response_data = {}
-
-        # Analyze symptoms
-        if symptoms:
-            response_data['symptom_analysis'] = generate_gemini_content(f"A user reports the following symptoms: {symptoms}. What general advice should be given?")
-
-        # Analyze health conditions
-        if health_conditions:
-            response_data['health_condition_analysis'] = generate_gemini_content(f"A user has these health conditions: {health_conditions}. How should this affect their care for the symptoms mentioned earlier?")
-
-        # Analyze lab report
-        if lab_report_path:
-            lab_report_text = extract_text_from_pdf(lab_report_path)
-            if lab_report_text:
-                response_data['lab_report_analysis'] = generate_gemini_content(f"The following text is extracted from a user's lab report: {lab_report_text[:100000]}. What insights can be drawn?")
-            else:
-                response_data['lab_report_analysis'] = "Unable to extract text from the lab report or file is empty."
-
-        return Response(response_data)
-
 
 
 @api_view(['GET'])
